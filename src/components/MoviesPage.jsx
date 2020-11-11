@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import queryString from "query-string";
 import SearchInput from "./SearchInput";
 import SearchAPI from "./SearchAPI";
 import MoviesFolder from "./MoviesFolder";
@@ -6,23 +7,46 @@ import MoviesFolder from "./MoviesFolder";
 export default class Movies extends Component {
   state = {
     films: [],
-    searchQuery: "",
   };
 
-  searchFilms = (query) => {
-    SearchAPI.axiosFilms(query)
-      .then((response) =>
-        this.setState({ films: response, searchQuery: query })
-      )
-      .catch((error) => this.setState({ error }));
+  componentDidMount = () => {
+    const { query } = queryString.parse(this.props.location.search);
+    if (query) {
+      SearchAPI.axiosFilms(query)
+        .then((response) => this.setState({ films: response }))
+        .catch((error) => this.setState({ error }));
+    }
+  };
+
+  componentDidUpdate = (prevProps) => {
+    const { query: prevQuery } = queryString.parse(prevProps.location.search);
+    const { query: nextQuery } = queryString.parse(this.props.location.search);
+    if (prevQuery !== nextQuery) {
+      SearchAPI.axiosFilms(nextQuery)
+        .then((response) => this.setState({ films: response }))
+        .catch((error) => this.setState({ error }));
+    }
+  };
+
+  handleSearchQuery = (query) => {
+    this.props.history.push({
+      pathname: this.props.location.pathname,
+      search: `query=${query}`,
+    });
   };
 
   render() {
-    const { films, searchQuery } = this.state;
+    const { films } = this.state;
+    console.log(this.props.location);
     return (
       <>
-        <SearchInput onSubmit={this.searchFilms} />
-        {films.length > 0 && <MoviesFolder arrayOfMovies={films} />}
+        <SearchInput onSubmit={this.handleSearchQuery} />
+        {films.length > 0 && (
+          <MoviesFolder
+            arrayOfMovies={films}
+            locationTo={this.props.location}
+          />
+        )}
       </>
     );
   }

@@ -16,6 +16,13 @@ export default class MovieDetailsPage extends Component {
       .catch((error) => this.setState({ error }));
   };
 
+  handleGoBack = () => {
+    console.log(this.props.location.state);
+    if (this.props.location.state && this.props.location.state.from) {
+      this.props.history.push(this.props.location.state.from);
+    }
+  };
+
   render() {
     const { movie } = this.state;
 
@@ -23,7 +30,7 @@ export default class MovieDetailsPage extends Component {
       <div>
         {movie && (
           <>
-            <Link to={routes.home}>Go back</Link>
+            <button onClick={this.handleGoBack}>Go back</button>
             <div>
               <h2>{movie.title}</h2>
               <p>{`${movie.vote_average * 10} %`}</p>

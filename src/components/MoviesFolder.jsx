@@ -4,12 +4,18 @@ import { Link } from "react-router-dom";
 import routes from "../routes";
 uuidv4();
 
-const MoviesFolder = ({ arrayOfMovies }) => {
+const MoviesFolder = ({ arrayOfMovies }, locationTo) => {
+  console.log(locationTo);
   return (
     <ul>
       {arrayOfMovies.map((movieItem) => (
         <li key={uuidv4()}>
-          <Link to={`${routes.movies}/${movieItem.id}`}>
+          <Link
+            to={{
+              pathname: `${routes.movies}/${movieItem.id}`,
+              state: { from: locationTo },
+            }}
+          >
             <p>{movieItem.title ? movieItem.title : movieItem.name}</p>
           </Link>
         </li>
