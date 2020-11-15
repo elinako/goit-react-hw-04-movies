@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import queryString from "query-string";
-import SearchInput from "./SearchInput";
-import SearchAPI from "./SearchAPI";
-import MoviesFolder from "./MoviesFolder";
+import SearchInput from "../SearchInput/SearchInput";
+import SearchAPI from "../SearchAPI";
+import MoviesFolder from "../MoviesFolder/MoviesFolder";
 
 export default class Movies extends Component {
   state = {
@@ -37,7 +37,6 @@ export default class Movies extends Component {
 
   render() {
     const { films } = this.state;
-    console.log(this.props.location);
     return (
       <>
         <SearchInput onSubmit={this.handleSearchQuery} />

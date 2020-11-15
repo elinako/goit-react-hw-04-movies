@@ -1,32 +1,34 @@
-import React, { Component } from "react";
-import { Switch, Route, BrowserRouter, Link } from "react-router-dom";
-import MoviesPage from "./components/MoviesPage";
-import HomePage from "./components/HomePage";
-import MovieDetailsPage from "./components/MovieDetailsPage";
-import Cast from "./components/Cast";
-import Reviews from "./components/Reviews";
+import React, { lazy, Suspense } from "react";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
+import Navigation from "./components/Navigation/Navigation";
 import routes from "./routes";
 
-class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <ul>
-          <li>
-            <Link to={routes.home}>Home</Link>
-          </li>
-          <li>
-            <Link to={routes.movies}>Movies</Link>
-          </li>
-        </ul>
-        <Switch>
-          <Route path={routes.home} exact component={HomePage} />
-          <Route path={routes.movies} exact component={MoviesPage} />
-          <Route path={routes.movieDetails} component={MovieDetailsPage} />
-        </Switch>
-      </BrowserRouter>
-    );
-  }
-}
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Navigation />
+      <Switch>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Route
+            path={routes.home}
+            exact
+            component={lazy(() => import("./components/HomePage/HomePage"))}
+          />
+          <Route
+            path={routes.movies}
+            exact
+            component={lazy(() => import("./components/MoviesPage/MoviesPage"))}
+          />
+          <Route
+            path={routes.movieDetails}
+            component={lazy(() =>
+              import("./components/MovieDetailsPage/MovieDetailsPage")
+            )}
+          />
+        </Suspense>
+      </Switch>
+    </BrowserRouter>
+  );
+};
 
 export default App;

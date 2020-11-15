@@ -1,23 +1,26 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
-import { Link } from "react-router-dom";
-import routes from "../routes";
+import { NavLink } from "react-router-dom";
+import routes from "../../routes";
+import styles from "./MoviesFolderStyles.module.css";
+import PropTypes from "prop-types";
 uuidv4();
 
 const MoviesFolder = ({ arrayOfMovies, locationTo }) => {
-  console.log(locationTo);
   return (
-    <ul>
+    <ul className={styles.list}>
       {arrayOfMovies.map((movieItem) => (
         <li key={uuidv4()}>
-          <Link
+          <NavLink
+            className={styles.link}
+            activeClassName={styles.activeLink}
             to={{
               pathname: `${routes.movies}/${movieItem.id}`,
               state: { from: locationTo },
             }}
           >
             <p>{movieItem.title ? movieItem.title : movieItem.name}</p>
-          </Link>
+          </NavLink>
         </li>
       ))}
     </ul>
@@ -25,3 +28,7 @@ const MoviesFolder = ({ arrayOfMovies, locationTo }) => {
 };
 
 export default MoviesFolder;
+
+MoviesFolder.propTypes = {
+  arrayOfMovies: PropTypes.array,
+};

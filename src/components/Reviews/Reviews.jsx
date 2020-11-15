@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import SearchAPI from "./SearchAPI";
+import SearchAPI from "../SearchAPI";
+
 export default class Reviews extends Component {
   state = {
     reviews: [],

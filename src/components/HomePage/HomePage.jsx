@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import SearchAPI from "./SearchAPI";
-import MoviesFolder from "./MoviesFolder";
+import SearchAPI from "../SearchAPI";
+import MoviesFolder from "../MoviesFolder/MoviesFolder";
+import styles from "./HomePageStyles.module.css";
 
 export default class HomePage extends Component {
   state = {
@@ -15,7 +16,7 @@ export default class HomePage extends Component {
     const { films } = this.state;
     return (
       <>
-        <p>Trending today</p>
+        <p className={styles.p}>Trending today</p>
         <MoviesFolder arrayOfMovies={films} />
       </>
     );

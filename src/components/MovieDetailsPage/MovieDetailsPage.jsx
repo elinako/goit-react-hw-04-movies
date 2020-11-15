@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import SearchAPI from "./SearchAPI";
-import Cast from "./Cast";
-import Reviews from "./Reviews";
+import SearchAPI from "../SearchAPI";
+import Cast from "../Cast/Cast";
+import Reviews from "../Reviews/Reviews";
 import { Link, Route } from "react-router-dom";
-import routes from "../routes";
+import routes from "../../routes";
 
 export default class MovieDetailsPage extends Component {
   state = {
@@ -18,9 +18,12 @@ export default class MovieDetailsPage extends Component {
 
   handleGoBack = () => {
     console.log(this.props.location.state);
-    if (this.props.location.state && this.props.location.state.from) {
-      this.props.history.push(this.props.location.state.from);
+    const { state } = this.props.location;
+    if (state && state.from) {
+      return this.props.history.push(this.props.location.state.from);
     }
+
+    this.props.history.push(routes.home);
   };
 
   render() {

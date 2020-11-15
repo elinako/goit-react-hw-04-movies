@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SearchAPI from "./SearchAPI";
+import SearchAPI from "../SearchAPI";
 
 export default class Cast extends Component {
   state = {
