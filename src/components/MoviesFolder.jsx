@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import routes from "../routes";
 uuidv4();
 
-const MoviesFolder = ({ arrayOfMovies }, locationTo) => {
+const MoviesFolder = ({ arrayOfMovies, locationTo }) => {
   console.log(locationTo);
   return (
     <ul>

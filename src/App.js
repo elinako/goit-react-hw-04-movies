@@ -23,8 +23,6 @@ class App extends Component {
           <Route path={routes.home} exact component={HomePage} />
           <Route path={routes.movies} exact component={MoviesPage} />
           <Route path={routes.movieDetails} component={MovieDetailsPage} />
-          <Route path={routes.cast} component={Cast} />
-          <Route path={routes.reviews} component={Reviews} />
         </Switch>
       </BrowserRouter>
     );
