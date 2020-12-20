@@ -1,0 +1,20 @@
+.listOfReviews {
+  list-style: none;
+  padding: 0;
+  width: 80vw;
+}
+
+.listItem {
+  font-size: 14px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.authorName::after {
+  content: "";
+  background-color: palevioletred;
+  display: block;
+  margin: 8px auto;
+  width: 60px;
+  height: 4px;
+}

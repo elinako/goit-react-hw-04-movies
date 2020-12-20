@@ -3,6 +3,7 @@ import queryString from "query-string";
 import SearchInput from "../SearchInput/SearchInput";
 import SearchAPI from "../SearchAPI";
 import MoviesFolder from "../MoviesFolder/MoviesFolder";
+import styles from "./MoviesPageStyles.module.css";
 
 export default class Movies extends Component {
   state = {
@@ -38,7 +39,7 @@ export default class Movies extends Component {
   render() {
     const { films } = this.state;
     return (
-      <>
+      <div className={styles.container}>
         <SearchInput onSubmit={this.handleSearchQuery} />
         {films.length > 0 && (
           <MoviesFolder
@@ -46,7 +47,7 @@ export default class Movies extends Component {
             locationTo={this.props.location}
           />
         )}
-      </>
+      </div>
     );
   }
 }

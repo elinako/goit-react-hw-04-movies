@@ -1,14 +1,28 @@
 import React, { lazy, Suspense } from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
+import Footer from "./components/Footer/Footer";
 import routes from "./routes";
+import Loader from "react-loader-spinner";
+import styles from "./styles/LoaderStyles.module.css";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Navigation />
       <Switch>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={
+            <Loader
+              className={styles.loader}
+              type="ThreeDots"
+              color="#DB7093"
+              height={100}
+              width={100}
+              timeout={3000}
+            />
+          }
+        >
           <Route
             path={routes.home}
             exact
@@ -27,6 +41,7 @@ const App = () => {
           />
         </Suspense>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 };

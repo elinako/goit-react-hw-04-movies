@@ -3,4 +3,35 @@
   font-size: 20px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: 26px;
+}
+
+.p::after {
+  content: "";
+  width: 70px;
+  height: 4px;
+  display: block;
+  background-color: palevioletred;
+  margin: 0px auto;
+  margin-top: 12px;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.homePageFolder {
+  display: flex;
+  flex-direction: column;
+  background: rgb(180, 58, 166);
+  background: linear-gradient(
+    90deg,
+    rgba(180, 58, 166, 0.16656169303658963) 0%,
+    rgba(255, 255, 255, 0.4410714969581583) 21%,
+    rgba(255, 255, 255, 0.06011911600577735) 87%,
+    rgba(252, 176, 69, 0.19737401796656162) 100%
+  );
 }

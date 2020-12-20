@@ -1,0 +1,13 @@
+.alertContainer {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+  position: absolute;
+  z-index: 1;
+  left: 40vw;
+  top: 20vh;
+}

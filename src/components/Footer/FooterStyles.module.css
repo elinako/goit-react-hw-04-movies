@@ -1,0 +1,18 @@
+.footer {
+  width: 100%;
+  height: 6vh;
+  background: url(https://cdn.pixabay.com/photo/2015/09/02/12/45/movie-918655_1280.jpg);
+  background-size: cover;
+  background-position: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.footerText {
+  margin: auto;
+  text-align: center;
+  color: #ffffff;
+  font-size: 12px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}

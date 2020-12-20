@@ -1,0 +1,74 @@
+.formContainer {
+  display: flex;
+  padding-top: 30vh;
+  justify-content: center;
+}
+
+.formInput {
+  min-width: 50vw;
+  height: 46px;
+  border: 2px solid palevioletred;
+  border-radius: 4px;
+  transition: 0.5s;
+  outline: none;
+  font-size: 18px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding-left: 8px;
+}
+
+.formElements {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.formInput:focus {
+  border: 2px solid rgb(145, 110, 168);
+  transition: 0.5s linear;
+  -webkit-box-shadow: inset 1px 1px 1px 1px rgba(146, 135, 196, 0.59);
+  -moz-box-shadow: inset 1px 1px 1px 1px rgba(146, 135, 196, 0.59);
+  box-shadow: inset 1px 1px 1px 1px rgba(146, 135, 196, 0.59);
+}
+
+.formButton {
+  margin-left: 20px;
+  min-width: 10vw;
+  height: 52px;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 2px solid palevioletred;
+  cursor: pointer;
+  color: palevioletred;
+  font-size: 18px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  outline: none;
+}
+
+.formButton:hover {
+  color: #ffffff;
+  background-color: palevioletred;
+  transition: 0.5s linear;
+  border: #ffffff;
+}
+
+.formbutton:focus {
+  outline: none;
+  transition: 0.5s;
+  border: 2px solid palevioletred;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .formButton {
+    margin: 5vh auto;
+  }
+
+  .formInput {
+    margin: 0 auto;
+  }
+
+  .formElements {
+    max-width: 50vw;
+  }
+}

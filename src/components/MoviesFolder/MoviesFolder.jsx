@@ -8,6 +8,7 @@ uuidv4();
 
 const MoviesFolder = ({ arrayOfMovies, locationTo }) => {
   return (
+    <div className={styles.moviesContainer}>
     <ul className={styles.list}>
       {arrayOfMovies.map((movieItem) => (
         <li key={uuidv4()}>
@@ -24,6 +25,7 @@ const MoviesFolder = ({ arrayOfMovies, locationTo }) => {
         </li>
       ))}
     </ul>
+    </div>
   );
 };
 

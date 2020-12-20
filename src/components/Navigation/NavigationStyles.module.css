@@ -1,5 +1,9 @@
+body {
+  margin: 0;
+}
+
 .link {
-  color: black;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -12,8 +16,19 @@
 }
 
 .list {
+  margin: 0;
+  padding-top: 5vh;
+  display: flex;
+  flex-direction: column;
   list-style: none;
   font-size: 18px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.background {
+  height: 20vh;
+  background: url(https://cdn.pixabay.com/photo/2017/11/24/10/43/admission-2974645_1280.jpg);
+  background-size: cover;
+  background-position: 50%;
 }
